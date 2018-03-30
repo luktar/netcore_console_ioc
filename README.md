@@ -1,6 +1,6 @@
 # Intro
 
-Empty .Net Core 2 console application with integrated IoC, logger, configuration file, test and mock framework, command line arguments and optional database connector.
+This project is an empty .Net Core 2 console application with integrated IoC, logger, configuration file, test and mock framework, command line arguments and optional database connector. You can use it as template for your console application.
 
 Everything is up and running and will save you a lot of time for searching the internet.
 
