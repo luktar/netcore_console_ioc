@@ -27,6 +27,24 @@ Optional:
 - go to root directory contains NewTemplateSolution.sln
 - run `dotnet build` command - the solution has been compiled successfully (at least I hope so)
 
+## Hello world!
+
+You can execute example command if following way:
+
+- open `NewTemplate` directory in terminal
+- execute command `dotnet run helloworld -t WORLD`
+- the following output should appear:
+
+```
+### NewTemplate ###
+Application started
+Building IoC container...
+IoC container set up successfully.
+[DEBUG] Logger set up successfully.
+[DEBUG] Reading command line arguments...
+[INFO] Hello WORLD!
+```
+
 ## Rename project
 
 Files and folders:
@@ -65,3 +83,49 @@ helloWorldCommand.Run();
 - add new command method to `Execute` method in `CommandsProvider.cs` class
 - set up breakpoint in `Run()` method in your command class
 - debug application with specified arguments - you should hit breakpoint
+
+# Built-in commands
+
+## Help
+
+If you want to display all possible arguments add `-h` or `--help` argument to your command.
+
+Example output:
+
+```
+Usage:  [options] [command]
+
+Options:
+  -h | --help  Show help information
+
+Commands:
+  helloworld  Hello world command.
+  version     Print NewTemplate version.
+
+Use " [command] --help" for more information about a command.
+```
+
+It doesn't work with `dotnet run`. You can perform this operation on direct `dll` file ex. `dotnet ./bin/debug/netcoreapp2.0/NewTemplate.dll -h`
+
+## Version
+
+To check project version execute command `dotnet run version`.
+
+Example output:
+
+```
+[INFO] NewTemplate version: 1.0.0.0)
+```
+
+The version is taken from project `*.csproj` file.
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Version>1.0.0.0</Version>
+  </PropertyGroup>
+  ...
+</Project>
+```
