@@ -1,0 +1,9 @@
+*.suo
+*.user
+bin
+obj
+packages
+.vs/WebSnooper/v15/sqlite3/storage.ide
+.vs
+*.userprefs
+Logs
