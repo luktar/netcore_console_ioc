@@ -31,17 +31,17 @@ Optional:
 
 Files and folders:
 
-- choose name for your project ex. MyProject
-- rename NewTemplateSolution.sln file
-- rename NewTemplate/NewTemplate.csproj file
-- rename NewTemplateTest/NewTemplateTest.csproj file
-- rename NewTemplate directory
-- rename NewTemplateTest directory
+- choose name for your project ex. `MyProject`
+- rename `NewTemplateSolution.sln` file
+- rename `NewTemplate/NewTemplate.csproj` file
+- rename `NewTemplateTest/NewTemplateTest.csproj` file
+- rename `NewTemplate` directory
+- rename `NewTemplateTest` directory
 
 Strings:
 
 - open VSCode in a root folder
-- rename all occurrences of 'NewTemplate' string
+- rename all occurrences of '`NewTemplate`' string
 
 Checkout:
 
