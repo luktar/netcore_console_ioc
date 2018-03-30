@@ -51,14 +51,17 @@ Checkout:
 
 - add new configuration properties to `IConfig` interface and `LocalConfig` class. You can use this class to pass command line arguments to your program
 - open `Commands` directory and add new base class for your command ( ex. `HelloWorldCommand.cs`) and implement `ICommand` interface
-- pass IoC object by constructor. I recommend to pass `ILogger<HelloWorldCommand>` and `IConfig`.
+- pass IoC object by the constructor. I recommend to pass `ILogger<HelloWorldCommand>` and `IConfig`.
 - you can use configuration from `IConfig` interface in `Run()` method
 - add command class to IoC container in `Startup.cs` file in method `ConfigureServices(IServiceCollection services)`. For instance `services.AddSingleton<ICommand, HelloWorldCommand>();`
-- open CommandsProvider.cs file and add new command method in similar way to `Version` or `HelloWorld`. You can read more about command line arguments in this articles: https://gist.github.com/iamarcel/8047384bfbe9941e52817cf14a79dc34 and https://blog.terribledev.io/Parsing-cli-arguments-in-dotnet-core-Console-App/
-- user following code to run your command class
+- open CommandsProvider.cs file and add new command method in a similar way to `Version` or `HelloWorld`. You can read more about command line arguments in this articles: https://gist.github.com/iamarcel/8047384bfbe9941e52817cf14a79dc34 and https://blog.terribledev.io/Parsing-cli-arguments-in-dotnet-core-Console-App/
+- use following code to run your command class
 ```
 ICommand helloWorldCommand = 
   ServiceProvider.GetServices<ICommand>().First(
     x => x.GetType() == typeof(HelloWorldCommand));
 helloWorldCommand.Run();
 ```
+- add new command method to `Execute` method in `CommandsProvider.cs` class
+- set up breakpoint in `Run()` method in your command class
+- debug application with specified arguments - you should hit breakpoint
